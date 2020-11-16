@@ -1,0 +1,10 @@
+<h1>Results:</h1>
+<% if @parsed[:found] == true %>
+  <p><strong>Congratulations!</strong><em><%= @parsed[:word].upcase%></em>, is a valid english word!</p>
+  <h3>Your word:</h3> <br> <%=  @parsed[:word]%>
+  <h3>Your score:</h3> <br> <%= @parsed[:length] %><br>
+<% else %>
+  <p>Sorry, <strong><%= @parsed[:word].upcase%></strong> is not a valid english word! Please try again.</p> <br>
+<% end %>
+
+<%= link_to 'Play Again', new_path %>
