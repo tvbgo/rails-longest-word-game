@@ -1,19 +1,24 @@
 
-<h1>Welcome!</h1>
+<div class="banner">
+  <h1>Welcome!</h1>
+  <h3>This is the longest-word game!</h3>
+  <p>Write a word containing only the letters provided below and click submit to see your score! The longest word wins!</p>
+</div>
 
-<h3>This is the longest word game!</h3>
-<p>Write a word containing only the letters provided below and click sybmit to see your score! The longest word wins!</p>
-
-<h2>New game:</h2>
-<% @letters.each do |letter| %>
-  <%= letter %>
+<div class="letters-container">
+  <h2>New game:</h2>
+  <% @letters.each do |letter| %>
+    <div class="letter-box"><h3> <%= letter %></h3> </div>
   <% end %>
+</div>
 
+<div class="answer-form">
   <form action="/score" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= label_tag 'answer', 'What is the longest word you can find?' %>
     <div>
-      <input type="text" name="answer" placeholder="Write your answer here">
-      <input type="submit" value="Play">
+      <input class="field" type="text" name="answer" placeholder="Write your answer here">
+      <input class="btn" type="submit" value="Play">
     </div>
   </form>
+</div>

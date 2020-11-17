@@ -1,10 +1,17 @@
-<h1>Results:</h1>
-<% if @parsed[:found] == true %>
-  <p><strong>Congratulations!</strong><em><%= @parsed[:word].upcase%></em>, is a valid english word!</p>
-  <h3>Your word:</h3> <br> <%=  @parsed[:word]%>
-  <h3>Your score:</h3> <br> <%= @parsed[:length] %><br>
-<% else %>
-  <p>Sorry, <strong><%= @parsed[:word].upcase%></strong> is not a valid english word! Please try again.</p> <br>
-<% end %>
 
-<%= link_to 'Play Again', new_path %>
+<div class="header">
+  <h1>Results:</h1>
+</div>
+<div class="results">
+  <% if @welcome == 'welcome' %>
+    <p>Please type something in before submitting!</p> <br>
+  <% elsif @found == true %>
+    <p><strong>Congratulations!</strong><em><%= @word.upcase%></em>, is a valid english word!</p>
+    <h3>Your word:</h3> <br> <%=  @word%>
+    <h3>Your score:</h3> <br> <%= @score %><br>
+  <% else %>
+    <p>Sorry, <strong><%= @word.upcase%></strong> is not a valid english word! Please try again.</p> <br>
+  <% end %>
+</div>
+
+<p class="play-again"><%= link_to 'Play Again', new_path %></p>
